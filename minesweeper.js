@@ -4,29 +4,38 @@ document.addEventListener('DOMContentLoaded', startGame)
 // Object made of arrays, 4x4 square grid
 var board = {
   cells: [
-    { row: 0, col: 0, isMine: true, hidden: true },
+    { row: 0, col: 0, isMine: true, hidden: true, isMarked: true },
     { row: 0, col: 1, isMine: false, hidden: true },
-    { row: 0, col: 2, isMine: true, hidden: true },
+    { row: 0, col: 2, isMine: true, hidden: true, isMarked: true },
+    { row: 0, col: 3, isMine: true, hidden: true, isMarked: true },
     { row: 1, col: 0, isMine: false, hidden: true },
     { row: 1, col: 1, isMine: false, hidden: true },
-    { row: 1, col: 2, isMine: true, hidden: true },
+    { row: 1, col: 2, isMine: false, hidden: true },
+    { row: 1, col: 3, isMine: false, hidden: true },
     { row: 2, col: 0, isMine: false, hidden: true },
-    { row: 2, col: 1, isMine: false, hidden: true },
-    { row: 2, col: 2, isMine: false, hidden: true }
+    { row: 2, col: 1, isMine: true, hidden: true, isMarked: true },
+    { row: 2, col: 2, isMine: false, hidden: true },
+    { row: 2, col: 3, isMine: false, hidden: true, isMarked: true },
+    { row: 3, col: 0, isMine: true, hidden: true },
+    { row: 3, col: 1, isMine: false, hidden: true },
+    { row: 3, col: 2, isMine: false, hidden: true },
+    { row: 3, col: 3, isMine: false, hidden: true }
   ]
 };
 
 
 function startGame() {
   // Don't remove this function call: it makes the game work!
-  for (i = 0; i < cells.length; i++)
-    lib.initBoard()
+  for (i = 0; i < board.cells.length; i++);
+
+  lib.initBoard()
 }
+
 
 // Define this function to look for a win condition:
 //
 // 1. Are all of the cells that are NOT mines visible?
-// 2. Are all of the mines marked?
+// 2. Are all of the mines marked? yeap
 function checkForWin() {
 
   // You can use this function call to declare a winner (once you've
@@ -43,5 +52,6 @@ function checkForWin() {
 // It will return cell objects in an array. You should loop through 
 // them, counting the number of times `cell.isMine` is true.
 function countSurroundingMines(cell) {
+
 }
 
