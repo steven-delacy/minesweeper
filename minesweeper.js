@@ -42,20 +42,30 @@ function startGame() {
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked? 
 function checkForWin() {
-  for (let i = 0; i < board.cells; i++)
-    if (isMine && isMarked == true) {
+  var youWon = true
+  for (let i = 0; i < board.cells.length; i++) {
+    var cell = board.cells[i]
+    if (cell.isMine && !cell.isMarked) {
+      youWon = false
     }
-  if (isMine && hidden == false) {
+    // if (cell.isMine && !cell.hidden) {
+    //   youWon = true
+
   }
-  return lib.displayMessage('You win!')
+  if (youWon) {
+    console.log('woo hoo')
+    return lib.displayMessage('You win!')
+  }
+
 }
-// make multiple if statements, don't try over complicate it
+// only displays 'you win!' once tile has been clicked on
+// need to only display message afterall tiles have been cleared
+// one more if statement is needed
 
 
-// is it a mine
-// is it hidden
-// is it marked
-// is it 
+// function checkForWin() {
+//   if (board.cells.every((cell) => (cell.isMine == false && cell.hidden == false) || (cell.isMine == true && cell.isMarked == true))) {
+//     lib.displayMessage('You win!')
 
 
 // You can use this function call to declare a winner (once you've
